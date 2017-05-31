@@ -392,6 +392,7 @@ public class JPushPlugin extends CordovaPlugin {
     void getRegistrationID(JSONArray data, CallbackContext callbackContext) {
         Context context = this.cordova.getActivity().getApplicationContext();
         String regID = JPushInterface.getRegistrationID(context);
+        JPushInterface.requestPermission(context);  //android 6.0以上请求动态权限
         callbackContext.success(regID);
     }
 
